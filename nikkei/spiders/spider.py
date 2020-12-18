@@ -7,7 +7,7 @@ from scrapy.utils.markup import remove_tags
 from nikkei.items import NikkeiItem
 
 
-class ParSpider(scrapy.Spider):
+class NikkeiSpider(scrapy.Spider):
 	name = 'nikkei'
 	start_urls = ['https://www.nikkei.com/access/index/?bd=hKijiSougou']
 	days_page = LinkExtractor(restrict_xpaths='//h2/div/div[2]/ul/li/a')
