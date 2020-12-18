@@ -24,12 +24,13 @@ class ParSpider(scrapy.Spider):
 
 	def parse_news(self, response):
 
-		title = response.xpath("//header/hgroup/h1/text()").extract()
-		description = response.xpath('//article/section[1]').extract()
-		# author = response.xpath("").extract()
-		date = response.xpath("(//time)[1]/text()").extract()
-		print(date)
-		description = remove_tags(str(description[0]))
+		title = response.xpath("//header/hgroup/h1/text()").get()
+		description = response.xpath('//article/section[1]').getall()
+		# author = response.xpath("").get()
+		date = response.xpath("(//time)[1]/text()").get()
+		if description:
+			description = remove_tags(str(description[0]))
+			print(description)
 
 		item = ItemLoader(item=NikkeiItem(), response=response)
 		item.add_value('title', title)
