@@ -8,19 +8,8 @@ DOWNLOAD_DELAY = 0
 
 ROBOTSTXT_OBEY = True
 
-FEEDS = {
-	'./files/items.jl': {
-		'format': 'jsonlines',
-		'encoding': 'utf8',
-		'store_empty': False,
-		'item_export_kwargs': {
-			'export_empty_fields': True,
-		},
-	},
-}
-
 ITEM_PIPELINES = {
-	# 'nikkei.pipelines.NikkeiPipeline': 100,
+	'nikkei.pipelines.NikkeiPipeline': 100,
 
 }
 
